@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "bun build --watch src/color.ts --outdir dist",
 		"bun-watch": "bun run --watch src/color.ts",
-		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+		"start": "bun-run-all --parallel dev build-css"
 	},
 	"devDependencies": {
 		"@types/bun": "latest"
