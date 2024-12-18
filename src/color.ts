@@ -22,3 +22,30 @@ const getRandomColor = (): string => {
 	return color;
 };
 // console.log(getRandomColor());
+
+// Update color history array and the display
+const updateColorHistory = (color: string): void => {
+	colorHistory.push(color);
+	if (colorHistory.length > 5) {
+		colorHistory.shift(); // Keep only the last 5 colors
+	}
+	updateColorHistoryDisplay();
+	saveColorHistory();
+};
+
+// Update the color history display in the DOM
+const updateColorHistoryDisplay = (): void => {
+	colorHistoryElement.innerHTML =
+		"Color History: " +
+		colorHistory
+			.map(
+				(c) =>
+					`<div class="colorBox" style="background-color: ${c}; width: 20px; height: 20px; display: inline-block; margin: 2px;"></div>`
+			)
+			.join("");
+};
+
+// Save color history to localStorage
+const saveColorHistory = (): void => {
+	localStorage.setItem("colorHistory", JSON.stringify(colorHistory));
+};
