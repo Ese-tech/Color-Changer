@@ -68,3 +68,12 @@ changeColorButton.addEventListener("click", () => {
 	colorCodeElement.innerText = `Current Color: ${newColor}`;
 	updateColorHistory(newColor);
 });
+
+// Reset the background color and clear the history
+resetColorButton.addEventListener("click", () => {
+	document.body.style.backgroundColor = "#FFFFFF";
+	colorCodeElement.innerText = "Current Color: #FFFFFF";
+	colorHistory = [];
+	colorHistoryElement.innerHTML = "Color History: ";
+	saveColorHistory();
+});
