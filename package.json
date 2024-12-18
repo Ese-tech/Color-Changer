@@ -1,16 +1,21 @@
 {
-  "name": "color-changer",
-  "module": "color.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.7.2"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
-  }
+	"name": "color-changer",
+	"module": "color.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "bun build --watch src/color.ts --outdir dist",
+		"bun-watch": "bun run --watch src/color.ts",
+		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.7.2"
+	},
+	"dependencies": {
+		"autoprefixer": "^10.4.20",
+		"postcss": "^8.4.49",
+		"tailwindcss": "^3.4.17"
+	}
 }
