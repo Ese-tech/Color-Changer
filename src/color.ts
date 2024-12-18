@@ -50,3 +50,20 @@ const saveColorHistory = (): void => {
 	localStorage.setItem("colorHistory", JSON.stringify(colorHistory));
 };
 // console.log(getRandomColor());
+// Load color history from localStorage
+const loadColorHistory = (): void => {
+	const savedHistory = localStorage.getItem("colorHistory");
+	if (savedHistory) {
+		colorHistory = JSON.parse(savedHistory);
+		updateColorHistoryDisplay();
+	}
+};
+console.log(getRandomColor());
+
+// Change the background color and update the history
+changeColorButton.addEventListener("click", () => {
+	const newColor = getRandomColor();
+	document.body.style.backgroundColor = newColor;
+	colorCodeElement.innerText = `Current Color: ${newColor}`;
+	updateColorHistory(newColor);
+});
