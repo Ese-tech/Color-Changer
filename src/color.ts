@@ -49,3 +49,4 @@ const updateColorHistoryDisplay = (): void => {
 const saveColorHistory = (): void => {
 	localStorage.setItem("colorHistory", JSON.stringify(colorHistory));
 };
+// console.log(getRandomColor());
