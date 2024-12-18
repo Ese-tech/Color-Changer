@@ -21,3 +21,4 @@ const getRandomColor = (): string => {
 	}
 	return color;
 };
+// console.log(getRandomColor());
