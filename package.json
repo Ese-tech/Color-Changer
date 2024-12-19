@@ -4,14 +4,10 @@
 	"type": "module",
 	"scripts": {
 		"dev": "bun build --watch src/color.ts --outdir dist",
-		"bun-watch": "bun run --watch src/color.ts",
 		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-		"start": "concurrently \"bun run dev\" \"bun run build-css\""
+		"start": "bun run dev & bun run build-css"
 	},
-	"devDependencies": {
-		"@types/bun": "latest",
-		"concurrently": "^8.0.0"
-	},
+	"devDependencies": {},
 	"peerDependencies": {
 		"typescript": "^5.7.2"
 	},

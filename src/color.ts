@@ -5,6 +5,7 @@ const changeColorButton = document.getElementById(
 const resetColorButton = document.getElementById(
 	"resetColorButton"
 ) as HTMLButtonElement;
+const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
 const colorCodeElement = document.getElementById("colorCode") as HTMLDivElement;
 const colorHistoryElement = document.getElementById(
 	"colorHistory"
@@ -12,11 +13,11 @@ const colorHistoryElement = document.getElementById(
 
 let colorHistory: string[] = [];
 
-// Generate a random 8-character hex color
+// Generate a random 6-character hex color
 const getRandomColor = (): string => {
 	const letters = "0123456789ABCDEF";
 	let color = "#";
-	for (let i = 0; i < 8; i++) {
+	for (let i = 0; i < 6; i++) {
 		color += letters[Math.floor(Math.random() * 16)];
 	}
 	return color;
@@ -61,7 +62,7 @@ const loadColorHistory = (): void => {
 };
 // console.log(getRandomColor());
 
-// Change the background color and update the history
+/// Change the background color and update the history
 changeColorButton.addEventListener("click", () => {
 	const newColor = getRandomColor();
 	document.body.style.backgroundColor = newColor;
