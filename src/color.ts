@@ -67,6 +67,26 @@ const loadColorHistory = (): void => {
 	}
 };
 
+// Show a tooltip-like feedback when the color is copied
+const showCopyFeedback = (): void => {
+	const tooltip = document.createElement("div");
+	tooltip.innerText = "Color copied!";
+	tooltip.style.position = "fixed";
+	tooltip.style.bottom = "20px";
+	tooltip.style.right = "20px";
+	tooltip.style.backgroundColor = "#333";
+	tooltip.style.color = "#fff";
+	tooltip.style.padding = "10px";
+	tooltip.style.borderRadius = "5px";
+	tooltip.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+	tooltip.style.zIndex = "1000";
+	document.body.appendChild(tooltip);
+
+	setTimeout(() => {
+		document.body.removeChild(tooltip);
+	}, 3000); // Tooltip disappears after 3 seconds
+};
+
 // Change the background color and update the history
 changeColorButton.addEventListener("click", () => {
 	const newColor = getRandomColor();
@@ -92,12 +112,12 @@ colorPicker.addEventListener("input", (event) => {
 	updateColorHistory(newColor);
 });
 
-// Copy the current color to the clipboard
+// Copy the current color to the clipboard and show feedback
 copyColorButton.addEventListener("click", async () => {
 	const currentColor = colorCodeElement.innerText.split(": ")[1];
 	try {
 		await navigator.clipboard.writeText(currentColor);
-		alert("Color copied to clipboard!");
+		showCopyFeedback();
 	} catch (err) {
 		console.error("Failed to copy color: ", err);
 	}
