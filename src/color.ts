@@ -91,3 +91,14 @@ colorPicker.addEventListener("input", (event) => {
 	colorCodeElement.innerText = `Current Color: ${newColor}`;
 	updateColorHistory(newColor);
 });
+
+// Copy the current color to the clipboard
+copyColorButton.addEventListener("click", async () => {
+	const currentColor = colorCodeElement.innerText.split(": ")[1];
+	try {
+		await navigator.clipboard.writeText(currentColor);
+		alert("Color copied to clipboard!");
+	} catch (err) {
+		console.error("Failed to copy color: ", err);
+	}
+});
