@@ -66,9 +66,8 @@ const loadColorHistory = (): void => {
 		updateColorHistoryDisplay();
 	}
 };
-// console.log(getRandomColor());
 
-/// Change the background color and update the history
+// Change the background color and update the history
 changeColorButton.addEventListener("click", () => {
 	const newColor = getRandomColor();
 	document.body.style.backgroundColor = newColor;
