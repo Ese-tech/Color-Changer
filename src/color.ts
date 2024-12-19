@@ -5,6 +5,12 @@ const changeColorButton = document.getElementById(
 const resetColorButton = document.getElementById(
 	"resetColorButton"
 ) as HTMLButtonElement;
+const copyColorButton = document.getElementById(
+	"copyColorButton"
+) as HTMLButtonElement;
+const toggleDarkModeButton = document.getElementById(
+	"toggleDarkModeButton"
+) as HTMLButtonElement;
 const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
 const colorCodeElement = document.getElementById("colorCode") as HTMLDivElement;
 const colorHistoryElement = document.getElementById(
