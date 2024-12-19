@@ -83,3 +83,11 @@ resetColorButton.addEventListener("click", () => {
 	colorHistoryElement.innerHTML = "Color History: ";
 	saveColorHistory();
 });
+
+// Change the background color using the color picker and update the history
+colorPicker.addEventListener("input", (event) => {
+	const newColor = (event.target as HTMLInputElement).value;
+	document.body.style.backgroundColor = newColor;
+	colorCodeElement.innerText = `Current Color: ${newColor}`;
+	updateColorHistory(newColor);
+});
