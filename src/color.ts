@@ -104,14 +104,6 @@ resetColorButton.addEventListener("click", () => {
 	saveColorHistory();
 });
 
-// Change the background color using the color picker and update the history
-colorPicker.addEventListener("input", (event) => {
-	const newColor = (event.target as HTMLInputElement).value;
-	document.body.style.backgroundColor = newColor;
-	colorCodeElement.innerText = `Current Color: ${newColor}`;
-	updateColorHistory(newColor);
-});
-
 // Copy the current color to the clipboard and show feedback
 copyColorButton.addEventListener("click", async () => {
 	const currentColor = colorCodeElement.innerText.split(": ")[1];
@@ -121,4 +113,12 @@ copyColorButton.addEventListener("click", async () => {
 	} catch (err) {
 		console.error("Failed to copy color: ", err);
 	}
+});
+
+// Change the background color using the color picker and update the history
+colorPicker.addEventListener("input", (event) => {
+	const newColor = (event.target as HTMLInputElement).value;
+	document.body.style.backgroundColor = newColor;
+	colorCodeElement.innerText = `Current Color: ${newColor}`;
+	updateColorHistory(newColor);
 });
