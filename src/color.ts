@@ -28,7 +28,6 @@ const getRandomColor = (): string => {
 	}
 	return color;
 };
-// console.log(getRandomColor());
 
 // Update color history array and the display
 const updateColorHistory = (color: string): void => {
@@ -56,7 +55,6 @@ const updateColorHistoryDisplay = (): void => {
 const saveColorHistory = (): void => {
 	localStorage.setItem("colorHistory", JSON.stringify(colorHistory));
 };
-// console.log(getRandomColor());
 
 // Load color history from localStorage
 const loadColorHistory = (): void => {
@@ -122,3 +120,11 @@ colorPicker.addEventListener("input", (event) => {
 	colorCodeElement.innerText = `Current Color: ${newColor}`;
 	updateColorHistory(newColor);
 });
+
+// Toggle dark mode
+toggleDarkModeButton.addEventListener("click", () => {
+	document.body.classList.toggle("dark-mode");
+});
+
+// Load the color history when the page loads
+window.addEventListener("load", loadColorHistory);
