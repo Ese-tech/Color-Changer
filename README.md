@@ -16,7 +16,7 @@ This is a simple color changer app that allows users to change the background co
 1. Clone the repository:
 
    ```sh
-   git clone <repository-url>
+   git clone <https://github.com/Ese-tech/Color-Changer>
    cd Color-Changer
    ```
 
