@@ -3,9 +3,9 @@
 	"module": "color.ts",
 	"type": "module",
 	"scripts": {
-		"dev": "bun build --watch src/color.ts --outdir public",
-		"build": "bun build src/color.ts --outdir public",
-		"build-css": "bun run tailwindcss -i ./src/input.css -o ./public/output.css --watch",
+		"dev": "bun build --watch src/color.ts --outdir dist",
+		"build": "bun build src/color.ts --outdir dist",
+		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
 		"start": "bun run dev & bun run build-css"
 	},
 	"devDependencies": {},
