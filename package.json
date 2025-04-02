@@ -4,8 +4,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "bun build --watch src/color.ts --outdir dist",
-		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-		"start": "bun run dev & bun run build-css"
+		"build-css": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css",
+		"build-css:watch": "bun run tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+		"start": "bun run dev & bun run build-css:watch"
 	},
 	"devDependencies": {},
 	"peerDependencies": {
