@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Changer App</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%233b82f6'/></svg>" />
+    <link href="dist/output.css" rel="stylesheet" />
+    <style>
+      body {
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white min-h-screen flex items-center justify-center">
+    <main class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 w-full max-w-md mx-auto flex flex-col items-center">
+      <h1 class="text-3xl font-extrabold mb-6 text-center text-blue-600 dark:text-blue-400">Color Changer</h1>
+      <div class="flex flex-wrap gap-3 mb-6 justify-center w-full">
+        <button id="changeColorButton" class="bg-blue-500 hover:bg-blue-600 transition text-white px-4 py-2 rounded shadow">Change Color</button>
+        <button id="resetColorButton" class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-2 rounded shadow">Reset Color</button>
+        <button id="copyColorButton" class="bg-green-500 hover:bg-green-600 transition text-white px-4 py-2 rounded shadow">Copy Color</button>
+        <button id="toggleDarkModeButton" class="bg-gray-500 hover:bg-gray-600 transition text-white px-4 py-2 rounded shadow">Toggle Dark Mode</button>
+      </div>
+      <label for="colorPicker" class="block text-sm font-medium mb-2">Pick a color:</label>
+      <input type="color" id="colorPicker" class="mb-4 w-16 h-10 border-2 border-gray-300 rounded cursor-pointer" />
+      <div id="colorCode" class="mt-2 text-lg font-semibold">Current Color: #FFFFFF</div>
+      <div id="colorHistory" class="mt-4 text-sm flex flex-col items-center">
+        <span class="font-semibold mb-2">Color History:</span>
+        <div id="colorHistoryBoxes" class="flex gap-2"></div>
+      </div>
+    </main>
+    <script type="module" src="src/color.js"></script>
+  </body>
+</html>
