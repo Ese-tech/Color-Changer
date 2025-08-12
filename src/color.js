@@ -6,6 +6,7 @@ var toggleDarkModeButton = document.getElementById("toggleDarkModeButton");
 var colorPicker = document.getElementById("colorPicker");
 var colorCodeElement = document.getElementById("colorCode");
 var colorHistoryElement = document.getElementById("colorHistory");
+var colorHistoryBoxes = document.getElementById("colorHistoryBoxes");
 var colorHistory = [];
 var getRandomColor = () => {
   const letters = "0123456789ABCDEF";
@@ -24,7 +25,11 @@ var updateColorHistory = (color) => {
   saveColorHistory();
 };
 var updateColorHistoryDisplay = () => {
-  colorHistoryElement.innerHTML = "Color History: " + colorHistory.map((c) => `<div class="colorBox" style="background-color: ${c}; width: 20px; height: 20px; display: inline-block; margin: 2px;"></div>`).join("");
+  if (colorHistoryBoxes) {
+    colorHistoryBoxes.innerHTML = colorHistory
+      .map((c) => `<div class="colorBox rounded shadow border border-gray-300" style="background-color: ${c}; width: 32px; height: 32px; display: inline-block;"></div>`)
+      .join("");
+  }
 };
 var saveColorHistory = () => {
   localStorage.setItem("colorHistory", JSON.stringify(colorHistory));
@@ -63,7 +68,7 @@ resetColorButton.addEventListener("click", () => {
   document.body.style.backgroundColor = "#FFFFFF";
   colorCodeElement.innerText = "Current Color: #FFFFFF";
   colorHistory = [];
-  colorHistoryElement.innerHTML = "Color History: ";
+  if (colorHistoryBoxes) colorHistoryBoxes.innerHTML = "";
   saveColorHistory();
 });
 copyColorButton.addEventListener("click", async () => {

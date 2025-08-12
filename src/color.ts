@@ -13,9 +13,8 @@ const toggleDarkModeButton = document.getElementById(
 ) as HTMLButtonElement;
 const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
 const colorCodeElement = document.getElementById("colorCode") as HTMLDivElement;
-const colorHistoryElement = document.getElementById(
-	"colorHistory"
-) as HTMLDivElement;
+const colorHistoryElement = document.getElementById("colorHistory") as HTMLDivElement;
+const colorHistoryBoxes = document.getElementById("colorHistoryBoxes") as HTMLDivElement;
 
 let colorHistory: string[] = [];
 
@@ -41,14 +40,14 @@ const updateColorHistory = (color: string): void => {
 
 // Update the color history display in the DOM
 const updateColorHistoryDisplay = (): void => {
-	colorHistoryElement.innerHTML =
-		"Color History: " +
-		colorHistory
+	if (colorHistoryBoxes) {
+		colorHistoryBoxes.innerHTML = colorHistory
 			.map(
 				(c) =>
-					`<div class="colorBox" style="background-color: ${c}; width: 20px; height: 20px; display: inline-block; margin: 2px;"></div>`
+					`<div class="colorBox rounded shadow border border-gray-300" style="background-color: ${c}; width: 32px; height: 32px; display: inline-block;"></div>`
 			)
 			.join("");
+	}
 };
 
 // Save color history to localStorage
@@ -98,7 +97,7 @@ resetColorButton.addEventListener("click", () => {
 	document.body.style.backgroundColor = "#FFFFFF";
 	colorCodeElement.innerText = "Current Color: #FFFFFF";
 	colorHistory = [];
-	colorHistoryElement.innerHTML = "Color History: ";
+	if (colorHistoryBoxes) colorHistoryBoxes.innerHTML = "";
 	saveColorHistory();
 });
 
